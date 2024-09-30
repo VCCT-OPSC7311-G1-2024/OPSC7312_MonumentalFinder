@@ -29,6 +29,12 @@
         android:label="Reward Wheel"
         tools:layout="@layout/fragment_wheel" />
 
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.monumentalfinder.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+
     <activity
         android:id="@+id/nav_logOut"
         android:name="com.example.monumentalfinder.LoginActivity"

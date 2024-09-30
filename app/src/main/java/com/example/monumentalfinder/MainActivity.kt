@@ -17,6 +17,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.ui.onNavDestinationSelected
 import com.example.monumentalfinder.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -39,11 +40,26 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_bingo, R.id.nav_history, R.id.nav_wheel, R.id.nav_logOut
+                R.id.nav_home, R.id.nav_bingo, R.id.nav_history, R.id.nav_wheel, R.id.nav_setting, R.id.nav_logOut
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_logOut -> {
+                    // Log out and navigate to LoginActivity
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish() // Close current activity
+                    true
+                }
+                else -> {
+                    menuItem.onNavDestinationSelected(navController) || super.onOptionsItemSelected(menuItem)
+                }
+            }
+        }
 
     }
 
