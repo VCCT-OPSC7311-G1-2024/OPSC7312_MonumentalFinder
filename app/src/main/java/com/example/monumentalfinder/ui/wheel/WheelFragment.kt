@@ -19,7 +19,7 @@ import com.example.monumentalfinder.SpinnerView
 
 class WheelFragment : Fragment() {
 
-    private lateinit var wheelImage: ImageView
+    private lateinit var wheelImage: SpinnerView
     private lateinit var spinButton: Button
     private lateinit var resultText: TextView
     private val wheelSections = arrayOf("Prize 1", "Prize 2", "Prize 3", "Prize 4", "Prize 5")
@@ -63,7 +63,8 @@ class WheelFragment : Fragment() {
     }
 
     private fun displayResult(sectionIndex: Int) {
-        val result = wheelSections[sectionIndex % wheelSections.size]
+        val sections = wheelImage.getSections()
+        val result = sections[sectionIndex % sections.size]
         resultText.text = "Congratulations! You landed on: $result"
     }
 }
