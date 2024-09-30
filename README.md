@@ -1,4 +1,11 @@
 Read Me
+
+Team Members:
+Sameer Rajie: ST10208353 
+Davin Laurings: ST10067956 
+Likwa Junior Moyo : ST10132139 
+Luwano Casby Mhango: ST10069127
+
 Purpose of the Application:
 
 This application is a GPS for tourists or people who look for new interesting places to have fun. The app provides a GPS service that shows all the local entertainment destinations and gives live recommendations on new establishments and tourist destinations that the city has to offer. It features a bingo like game for the week. Each card represents a location to visit. The GPS can be used offline although with limited use, this lets users get to fun destinations without having to worry about data. 
