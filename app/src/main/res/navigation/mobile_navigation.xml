@@ -12,14 +12,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.monumentalfinder.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_bingo"
+        android:name="com.example.monumentalfinder.ui.bingo.BingoFragment"
+        android:label="@string/menu_bingo"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.monumentalfinder.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_history"
+        android:name="com.example.monumentalfinder.ui.history.HistoryFragment"
+        android:label="@string/menu_history"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_logOut"
+        android:name="com.example.monumentalfinder.ui.history.HistoryFragment"
+        android:label="@string/menu_history"
+        tools:layout="@layout/fragment_home" />
+
 </navigation>
