@@ -26,21 +26,22 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = "11"  // Update to Java 11
+        jvmTarget = "11"
     }
+
     buildFeatures {
         viewBinding = true
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -52,8 +53,9 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
 
-    implementation(libs.androidx.credentials.play.services.auth)
-    implementation ("com.google.android.gms:play-services-auth:20.4.1")
+    // Google Play Services for Authentication
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation(libs.androidx.biometric.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -61,4 +63,9 @@ dependencies {
 
     implementation(libs.google.maps)
     implementation(libs.google.location)
+
+    implementation(libs.androidx.biometrics)
 }
+
+// Apply Google Services plugin
+apply(plugin = "com.google.gms.google-services")

@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "577155551735",
+    "project_id": "monumentalfinder",
+    "storage_bucket": "monumentalfinder.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577155551735:android:9654b6f78e44e9be779ef2",
+        "android_client_info": {
+          "package_name": "com.example.monumentalfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577155551735-f6896bcb15ed6pa4ccprlcsrt70rs9a1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.monumentalfinder",
+            "certificate_hash": "6cc3a8a92138b002db3167f593656e5ddcaf0649"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9txy0O-itBDrcXZQe1wMsbGY4uxX8TBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
