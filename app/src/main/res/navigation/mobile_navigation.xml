@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.monumentalfinder.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_bingo"
+        android:name="com.example.monumentalfinder.ui.bingo.BingoFragment"
+        android:label="@string/menu_bingo"
+        tools:layout="@layout/fragment_bingo" />
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.example.monumentalfinder.ui.history.HistoryFragment"
+        android:label="@string/menu_history"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/nav_wheel"
+        android:name="com.example.monumentalfinder.ui.wheel.WheelFragment"
+        android:label="Reward Wheel"
+        tools:layout="@layout/fragment_wheel" />
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.monumentalfinder.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <activity
+        android:id="@+id/nav_logOut"
+        android:name="com.example.monumentalfinder.LoginActivity"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/activity_login" />
+
+</navigation>

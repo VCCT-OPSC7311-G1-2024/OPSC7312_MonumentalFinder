@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "403097858507",
+    "project_id": "monumental-finder-1",
+    "storage_bucket": "monumental-finder-1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403097858507:android:9a81785970a402c733064e",
+        "android_client_info": {
+          "package_name": "com.example.monumentalfinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmqxvhFUrTdya06baX3zOrq-HJKF93FGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
