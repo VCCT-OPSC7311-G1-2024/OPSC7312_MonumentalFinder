@@ -12,4 +12,26 @@
     <string name="menu_history">Onlangse Aktiwiteit</string>
     <string name="menu_wheel">Beloning Wiel</string>
     <string name="menu_logout">Teken Uit</string>
+
+    <!-- String values for the login activity -->
+    <string name="username">Gebruikersnaam</string>
+    <string name="password">Wagwoord</string>
+    <string name="login">Meld Aan</string>
+    <string name="loginwithSSO">Meld Aan met SSO</string>
+    <string name="signup">Registreer</string>
+    <string name="noaccount">Het jy nie \'n rekening nie?</string>
+    <string name="imagedescription">Logo Beeld</string>
+
+    <!-- String values for activity_new_user.xml -->
+    <string name="newuser">Nuwe Gebruiker</string>
+    <string name="name">Naam</string>
+    <string name="surname">Van</string>
+    <string name="password2">Bevestig Wagwoord</string>
+    <string name="create">Skep</string>
+    <string name="back">Terug</string>
+
+    <!-- String values for fragment_home.xml -->
+    <string name="stepsTextView">Stappe: 0</string>
+    <string name="search">Soek</string>
+
 </resources>

@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -26,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var gso: GoogleSignInOptions
     private lateinit var gsc: GoogleSignInClient
     private lateinit var btnSSO: Button
+    private lateinit var btnLogin: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +43,8 @@ class LoginActivity : AppCompatActivity() {
 
         // Initialize the Button for sign-in
         btnSSO = findViewById(R.id.btnSSO)
+        // Button for skipping the log in process/logging in
+        btnLogin = findViewById(R.id.btnLogin)
 
         // Google Sign-In configuration
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -50,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
 
         // Set listener for the button
         btnSSO.setOnClickListener { signIn() }
+
+        btnLogin.setOnClickListener { navigateToNextActivity() }
     }
 
     private val signInLauncher = registerForActivityResult(
