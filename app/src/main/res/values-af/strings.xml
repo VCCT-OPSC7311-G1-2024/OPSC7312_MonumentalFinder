@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Monumentale Soeker</string>
+    <string name="navigation_drawer_open">Maak navigasielade oop</string>
+    <string name="navigation_drawer_close">Maak navigasielade toe</string>
+    <string name="nav_header_title">Monumentale Soeker</string>
+    <string name="nav_header_desc">Navigasie opskrif</string>
+    <string name="action_settings">Instellings</string>
+
+    <string name="menu_home">Tuis</string>
+    <string name="menu_bingo">Bingo</string>
+    <string name="menu_history">Onlangse Aktiwiteit</string>
+    <string name="menu_wheel">Beloning Wiel</string>
+    <string name="menu_logout">Teken Uit</string>
+</resources>

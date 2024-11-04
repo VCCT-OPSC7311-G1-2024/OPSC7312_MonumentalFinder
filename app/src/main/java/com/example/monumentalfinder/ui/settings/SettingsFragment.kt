@@ -1,5 +1,6 @@
 package com.example.monumentalfinder.ui.settings
 
+import android.app.AlertDialog
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +12,8 @@ import com.example.monumentalfinder.R
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import android.widget.Switch
+import java.util.Locale
+import android.content.res.Configuration
 
 class SettingsFragment : Fragment() {
 
@@ -20,29 +23,30 @@ class SettingsFragment : Fragment() {
 
     private lateinit var btnLeave: Button
     private val viewModel: SettingsViewModel by viewModels()
+    private lateinit var languageSettingsBtn: Button
     private lateinit var themeSwitch: Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_settings, container, false)
 
         // Find the exit button
         val exitButton: Button = rootView.findViewById(R.id.exitBtn)
-
-        // Set an OnClickListener on the button
         exitButton.setOnClickListener {
-            // Exit the application
             requireActivity().finishAffinity()
+        }
+
+        // Initialize the "Language Settings" button
+        languageSettingsBtn = rootView.findViewById(R.id.languageSettingsBtn)
+        languageSettingsBtn.setOnClickListener {
+            showLanguageDialog()
         }
 
         themeSwitch = rootView.findViewById(R.id.themeSwitch)
@@ -50,11 +54,8 @@ class SettingsFragment : Fragment() {
         // Load saved theme preference
         val isDarkModeEnabled = loadThemePreference(requireContext())
         themeSwitch.isChecked = isDarkModeEnabled
-
-        // Set the current theme based on the switch
         updateTheme(isDarkModeEnabled)
 
-        // Set up listener for the switch
         themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             saveThemePreference(requireContext(), isChecked)
             updateTheme(isChecked)
@@ -74,7 +75,7 @@ class SettingsFragment : Fragment() {
 
     private fun loadThemePreference(context: Context): Boolean {
         val sharedPref = context.getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("dark_mode", true) // Default to dark mode
+        return sharedPref.getBoolean("dark_mode", true)
     }
 
     private fun saveThemePreference(context: Context, isDarkMode: Boolean) {
@@ -83,5 +84,33 @@ class SettingsFragment : Fragment() {
             putBoolean("dark_mode", isDarkMode)
             apply()
         }
+    }
+
+    // Function to display language selection dialog
+    private fun showLanguageDialog() {
+        val languages = arrayOf("English", "Afrikaans")
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Select Language")
+            .setItems(languages) { _, which ->
+                val selectedLanguage = if (which == 0) "en" else "af"
+                setLocale(requireContext(), selectedLanguage)
+                requireActivity().recreate() // Refresh the activity to apply the language change
+            }
+            .create()
+            .show()
+    }
+
+    // Function to apply the selected locale and restart the activity
+    private fun setLocale(context: Context, languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        context.resources.updateConfiguration(config, context.resources.displayMetrics)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 }
