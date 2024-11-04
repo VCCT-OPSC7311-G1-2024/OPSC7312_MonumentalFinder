@@ -11,4 +11,26 @@
     <string name="menu_bingo">Bingo</string>
     <string name="menu_history">Recent Activity</string>
     <string name="menu_logout">Log Out</string>
+
+    <!-- String values for the login activity -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="loginwithSSO">Login with SSO</string>
+    <string name="signup">Sign Up</string>
+    <string name="noaccount">Don\'t have an Account? </string>
+    <string name="imagedescription">Logo Image"></string>
+
+    <!-- String values for activity_new_user.xml -->
+    <string name="newuser">New User</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="password2">Confirm Password</string>
+    <string name="create">Create</string>
+    <string name="back">Back</string>
+
+    <!-- String values for fragment_home.xml -->
+    <string name="stepsTextView">Steps: 0</string>
+    <string name="search">Search</string>
+
 </resources>

@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -26,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var gso: GoogleSignInOptions
     private lateinit var gsc: GoogleSignInClient
     private lateinit var btnSSO: Button
+    private lateinit var btnLogin: Button
+    private lateinit var btnNewUser: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +44,10 @@ class LoginActivity : AppCompatActivity() {
 
         // Initialize the Button for sign-in
         btnSSO = findViewById(R.id.btnSSO)
+        // Button for skipping the log in process/logging in
+        btnLogin = findViewById(R.id.btnLogin)
+        // Button to create a new local user
+        btnNewUser = findViewById(R.id.btnSignUp)
 
         // Google Sign-In configuration
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -50,6 +57,10 @@ class LoginActivity : AppCompatActivity() {
 
         // Set listener for the button
         btnSSO.setOnClickListener { signIn() }
+        // Set listener for the skip button
+        btnLogin.setOnClickListener { navigateToNextActivity() }
+        // Set listener for the new user button
+        btnNewUser.setOnClickListener { navigateToNewUserActivity() }
     }
 
     private val signInLauncher = registerForActivityResult(
@@ -120,6 +131,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun navigateToNextActivity() {
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+    }
+
+    private fun navigateToNewUserActivity() {
+        val intent = Intent(this@LoginActivity, NewUserActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
     }

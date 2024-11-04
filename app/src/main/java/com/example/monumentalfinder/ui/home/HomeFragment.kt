@@ -73,6 +73,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         // Enable the location layer on the map
         googleMap.isMyLocationEnabled = true
 
+
+
         // Set a default location (e.g., Sydney, Australia) or use the device's location
         val defaultLocation = LatLng(-34.0, 151.0) // Replace with your desired location
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 10f))

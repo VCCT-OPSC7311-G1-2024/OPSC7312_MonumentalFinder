@@ -13,7 +13,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Steps: 0"
+        android:layout_marginStart="200dp"
+        android:text="@string/stepsTextView"
         android:textAlignment="textEnd"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -29,6 +30,23 @@
         app:layout_constraintTop_toBottomOf="@id/stepsTextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="FragmentTagUsage" />
+
+    <EditText
+        android:id="@+id/edtSearch"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:foregroundTint="@color/white"
+        android:hint="@string/search"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

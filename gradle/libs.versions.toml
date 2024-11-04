@@ -1,5 +1,6 @@
 [versions]
 agp = "8.6.1"
+biometricKtxVersion = "1.1.0."
 credentialsPlayServicesAuth = "1.2.2"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -19,8 +20,10 @@ fragmentKtx = "1.5.6"
 google-maps = "18.1.0"
 google-location = "21.0.1"
 biometricKtx = "1.1.0"
+playServicesAuth = "21.2.0"
 
 [libraries]
+androidx-biometric-ktx-v110 = { module = "androidx.biometric:biometric-ktx", version.ref = "biometricKtxVersion" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentialsPlayServicesAuth" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -42,6 +45,7 @@ google-location = { group = "com.google.android.gms", name = "play-services-loca
 androidx-biometrics = { module = "androidx.biometric:biometric", version = "1.2.0-alpha05" }
 
 androidx-biometric-ktx = { group = "androidx.biometric", name = "biometric-ktx", version.ref = "biometricKtx" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -42,6 +42,12 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.MonumentalFinder.NoActionBar">
         </activity>
+
+        <activity
+            android:name=".NewUserActivity"
+            android:theme="@style/Theme.MonumentalFinder.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

@@ -54,7 +54,7 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
 
     // Google Play Services for Authentication
-    implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation(libs.play.services.auth)
     implementation(libs.androidx.biometric.ktx)
 
     testImplementation(libs.junit)
