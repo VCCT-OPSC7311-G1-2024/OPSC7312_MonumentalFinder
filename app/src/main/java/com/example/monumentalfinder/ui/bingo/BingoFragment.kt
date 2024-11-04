@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.monumentalfinder.MyFirebaseMessagingService
 import com.example.monumentalfinder.R
 import com.example.monumentalfinder.databinding.FragmentBingoBinding
 
@@ -118,7 +119,11 @@ class BingoFragment : Fragment() {
                     crossedOffCells.add(i) // Track crossed cell
 
                     if (checkBingo()) {
-                        Toast.makeText(context, "You've earned an extra spin", Toast.LENGTH_SHORT).show()
+                        MyFirebaseMessagingService.showNotification(
+                            requireContext(),
+                            "Bingo!!",
+                            "You've earned an extra spin."
+                        )
                         addExtraSpin() // Add an extra spin if Bingo is achieved
                     }
                 }

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import android.widget.Switch
 import java.util.Locale
 import android.content.res.Configuration
+import com.example.monumentalfinder.MyFirebaseMessagingService
 
 class SettingsFragment : Fragment() {
 
@@ -25,6 +26,7 @@ class SettingsFragment : Fragment() {
     private val viewModel: SettingsViewModel by viewModels()
     private lateinit var languageSettingsBtn: Button
     private lateinit var themeSwitch: Switch
+    private lateinit var offlineSwitch: Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,8 @@ class SettingsFragment : Fragment() {
             showLanguageDialog()
         }
 
+        offlineSwitch = rootView.findViewById(R.id.offlineSwitch)
+
         themeSwitch = rootView.findViewById(R.id.themeSwitch)
 
         // Load saved theme preference
@@ -61,8 +65,30 @@ class SettingsFragment : Fragment() {
             updateTheme(isChecked)
         }
 
+        offlineSwitch.setOnClickListener { offlineModeSwitch() }
+
         return rootView
     }
+
+    private fun offlineModeSwitch() {
+        val title = if (offlineSwitch.isChecked) {
+            "Offline"
+        } else {
+            "Online"
+        }
+        val message = if (offlineSwitch.isChecked) {
+            "You've entered offline mode"
+        } else {
+            "You've entered online mode" // Updated message for online state
+        }
+
+        MyFirebaseMessagingService.showNotification(
+            requireContext(),
+            title,
+            message
+        )
+    }
+
 
     private fun updateTheme(isDarkMode: Boolean) {
         val mode = if (isDarkMode) {

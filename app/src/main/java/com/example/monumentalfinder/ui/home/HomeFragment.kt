@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.monumentalfinder.BuildConfig
+import com.example.monumentalfinder.MyFirebaseMessagingService
 import com.example.monumentalfinder.R
 import com.example.monumentalfinder.databinding.FragmentHomeBinding
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -93,6 +94,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback, SensorEventListener {
 
         if (stepSensor == null) {
             Toast.makeText(requireContext(), "No Step Counter Sensor available!", Toast.LENGTH_SHORT).show()
+        } else {
+            MyFirebaseMessagingService.showNotification(
+                requireContext(),
+                "Steps",
+                "Step Counter Active"
+            )
         }
 
         return root

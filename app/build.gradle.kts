@@ -60,6 +60,11 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
 
+    // Firebase dependencies
+    implementation(platform("com.google.firebase:firebase-bom:32.0.0"))
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+
     // Google Play Services for Authentication
     implementation("com.google.android.gms:play-services-auth:21.2.0")
 

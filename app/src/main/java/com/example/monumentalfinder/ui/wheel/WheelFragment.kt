@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.monumentalfinder.MyFirebaseMessagingService
 import kotlin.random.Random
 import com.example.monumentalfinder.R
 import com.example.monumentalfinder.SpinnerView
@@ -49,7 +50,11 @@ class WheelFragment : Fragment() {
             if (currentSpinCount < spinLimit) { // Check if spin limit is not reached
                 spinWheel()
             } else {
-                Toast.makeText(context, "Spin limit reached!", Toast.LENGTH_SHORT).show() // Notify user
+                MyFirebaseMessagingService.showNotification(
+                    requireContext(),
+                    "Warning!",
+                    "You've reached your spin limit."
+                )
             }
         }
 
