@@ -19,6 +19,21 @@ Utilisation of GitHub:
 GitHub was used to help connect the members of our group, even though we live far away from one another, we were still able to collaborate on the code through GitHub.
 We were also able to use GitHub's built-in actions to create automated tests that ensure that our features work as they are intended to, even if ran on an outside machine.
 
+We also made use of GitHub actions to automatically test the code that was pushed to the master branch to ensure that the project can build correctly and to track the workflow.
+
+
+Release notes:
+Updates since the prototype include:
+•	Biometric Authentication: integrates biometric login to enhance security this is an advantage to the application
+•	⁠Rewards Wheel: added a rewards spinner using the WheelFragment 
+•	⁠Bingo game: A 5x5 bingo card layout in the BingoFragment 
+•	⁠Step Counter: added a step counter which enables users to track their steps
+•	⁠Landmark Map: The map feature shows landmarks in real-time
+•	⁠Dark mode / Light mode: UI components across all pages are adaptable for light and dark mode.
+•	Language preference: Have multiple language options for users to use.
+
+
+
 GitHub Link:
 https://github.com/VCCT-OPSC7311-G1-2024/OPSC7312_MonumentalFinder.git
 
@@ -32,4 +47,9 @@ API Was also published successfully
 
  
 Video Link:
-https://youtu.be/UXXnVjH1x98
+https://youtu.be/E-axxtsPHN8
+
+Logo: 
+
+![image](https://github.com/user-attachments/assets/06cbd01c-143c-43bf-a304-81de741bb51b)
+
