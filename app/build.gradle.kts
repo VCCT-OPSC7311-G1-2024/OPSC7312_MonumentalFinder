@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
+val apiKey = project.findProperty("GOOGLE_MAPS_API_KEY") ?: ""
+
 android {
     namespace = "com.example.monumentalfinder"
     compileSdk = 34
@@ -24,6 +26,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"$apiKey\"")
+        }
+        debug {
+            buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"$apiKey\"")
         }
     }
 
@@ -38,6 +44,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -55,7 +62,6 @@ dependencies {
 
     // Google Play Services for Authentication
     implementation("com.google.android.gms:play-services-auth:21.2.0")
-    implementation(libs.androidx.biometric.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -63,8 +69,10 @@ dependencies {
 
     implementation(libs.google.maps)
     implementation(libs.google.location)
+    implementation(libs.google.places)
 
     implementation(libs.androidx.biometrics)
+
 }
 
 // Apply Google Services plugin

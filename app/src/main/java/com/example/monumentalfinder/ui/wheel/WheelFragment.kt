@@ -22,7 +22,12 @@ class WheelFragment : Fragment() {
     private lateinit var wheelImage: SpinnerView
     private lateinit var spinButton: Button
     private lateinit var resultText: TextView
-    private val wheelSections = arrayOf("Prize 1", "Prize 2", "Prize 3", "Prize 4", "Prize 5")
+    private lateinit var spinsRemainingText: TextView // New TextView for spins remaining
+    private val wheelSections = arrayOf("Gift Card", "Re-Spin", "Nothing", "R10", "+2 Bingo", "Gift Card +")
+
+    // Define spin limit
+    private var spinLimit = 0
+    private var currentSpinCount = 0 // Counter for current spins
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,25 +38,60 @@ class WheelFragment : Fragment() {
         wheelImage = view.findViewById(R.id.spinnerView)
         spinButton = view.findViewById(R.id.spinButton)
         resultText = view.findViewById(R.id.resultText)
+        spinsRemainingText = view.findViewById(R.id.spinsRemainingText) // Initialize spins remaining TextView
+
+        loadSpinCount()
+
+        // Initialize spins remaining display
+        spinsRemainingText.text = "Spins Remaining: ${spinLimit}"
 
         spinButton.setOnClickListener {
-            spinWheel()
+            if (currentSpinCount < spinLimit) { // Check if spin limit is not reached
+                spinWheel()
+            } else {
+                Toast.makeText(context, "Spin limit reached!", Toast.LENGTH_SHORT).show() // Notify user
+            }
         }
 
         return view
     }
 
+    private fun loadSpinCount() {
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", AppCompatActivity.MODE_PRIVATE)
+        spinLimit = sharedPreferences.getInt("spin_count", 0) // Default to 0 if not set
+    }
+
+    private fun saveSpinCount() {
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", AppCompatActivity.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putInt("spin_count", spinLimit)
+            apply()
+        }
+    }
+
     private fun spinWheel() {
         // Random angle for the spin (between 0 and 360 degrees)
         val randomAngle = (0..360).random().toFloat()
+        val totalRotation = 3600f + randomAngle // Total rotation
 
         // Animate the wheel spin
         wheelImage.animate()
-            .rotationBy(3600f + randomAngle) // 3600 for 10 full rotations, plus random angle
+            .rotationBy(totalRotation)
             .setDuration(3000)
             .withEndAction {
-                val sectionIndex = getSectionFromAngle(randomAngle)
+                // Calculate the actual ending angle
+                val endingAngle = (totalRotation % 360)
+
+                // Get the index based on the ending angle
+                val sectionIndex = getSectionFromAngle(endingAngle)
                 displayResult(sectionIndex)
+
+                // Increment the spin counter
+                currentSpinCount++
+                spinLimit -= currentSpinCount
+                spinsRemainingText.text = "Spins Remaining: ${spinLimit}" // Update spins remaining text
+
+                saveSpinCount()
             }
             .start()
     }
@@ -63,8 +103,7 @@ class WheelFragment : Fragment() {
     }
 
     private fun displayResult(sectionIndex: Int) {
-        val sections = wheelImage.getSections()
-        val result = sections[sectionIndex % sections.size]
+        val result = wheelSections[sectionIndex % wheelSections.size] // Use wheelSections for results
         resultText.text = "Congratulations! You landed on: $result"
     }
 }
